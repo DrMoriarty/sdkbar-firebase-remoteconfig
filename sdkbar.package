@@ -1,14 +1,14 @@
 
 sdkbox.copy_files(['app'], PLUGIN_PATH, ANDROID_STUDIO_PROJECT_DIR)
 sdkbox.copy_files(['ios'], PLUGIN_PATH, IOS_PROJECT_DIR)
-sdkbox.copy_files(['Classes/RemoteConfig.cpp', 'Classes/RemoteConfig.h', 'Classes/RemoteConfig.hpp', 'Classes/RemoteConfig.mm'], PLUGIN_PATH, COCOS_CLASSES_DIR)
+sdkbox.copy_files(['Classes/RemoteConfig.cpp', 'Classes/RemoteConfig.hpp'], PLUGIN_PATH, COCOS_CLASSES_DIR)
 sdkbox.copy_files(['ios/firebase_remote_config.framework'], PLUGIN_PATH, IOS_PROJECT_DIR)
 
 sdkbox.android_add_static_libraries(['remote_config'])
 sdkbox.android_add_calls(['import-module, ./remoteconfig'])
 sdkbar.gradle_dependencies(["compile 'com.google.firebase:firebase-config:16.0.0'"])
 
-sdkbox.xcode_add_sources(['RemoteConfig.mm'])
+sdkbox.xcode_add_sources(['RemoteConfig.cpp'])
 sdkbox.xcode_add_frameworks(['firebase_remote_config.framework'])
 
 sdkbar.appDelegateInject({
@@ -18,7 +18,7 @@ sdkbar.appDelegateInject({
          'function': 'register_all_remoteconfig_framework'
     },
     'ios': {
-         'include': 'RemoteConfig.h',
+         'include': 'RemoteConfig.hpp',
          'function': 'register_all_remoteconfig_framework'
     }
 })
