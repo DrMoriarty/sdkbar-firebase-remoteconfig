@@ -41,7 +41,6 @@ static bool jsb_admob_init(JSContext *cx, uint32_t argc, jsval *vp)
             }
             firebase::remote_config::Fetch();
         }
-        ApplicationId = advertisingId;
         rec.rval().set(JSVAL_TRUE);
         return true;
     } else {
@@ -150,7 +149,7 @@ static bool jsb_admob_get_string(JSContext *cx, uint32_t argc, jsval *vp)
 //
 ///////////////////////////////////////
 
-void register_all_admob_framework(JSContext* cx, JS::HandleObject obj) {
+void register_all_remoteconfig_framework(JSContext* cx, JS::HandleObject obj) {
     printLog("[FirebaseRemoteConfig] register js interface");
     JS::RootedObject ns(cx);
     get_or_create_js_obj(cx, obj, "remoteconfig", &ns);
