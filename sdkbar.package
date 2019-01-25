@@ -6,7 +6,7 @@ sdkbox.copy_files(['ios/firebase_remote_config.framework', 'ios/FirebaseABTestin
 
 sdkbox.android_add_static_libraries(['remote_config'])
 sdkbox.android_add_calls(['import-module, ./remoteconfig'])
-sdkbar.gradle_dependencies(["compile 'com.google.firebase:firebase-config:16.1.0'"])
+sdkbar.gradle_dependencies(["compile 'com.google.firebase:firebase-config:16.1.3'"])
 
 sdkbox.xcode_add_sources(['RemoteConfig.cpp'])
 sdkbox.xcode_add_frameworks(['firebase_remote_config.framework', 'FirebaseABTesting.framework', 'FirebaseRemoteConfig.framework'])
